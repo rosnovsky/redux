@@ -4,11 +4,7 @@ const articles = (state = {}, action) => {
             let currentArticle = state.articles.filter(
                 headline => headline.id === action.id
             );
-
-            currentArticle[0].active = !currentArticle[0].active;
-
             const newState = { ...state, activeArticle: currentArticle[0] };
-
             return newState;
         case 'UPDATE_ARTICLES':
             return { articles: action.articles, activeArticle: null };

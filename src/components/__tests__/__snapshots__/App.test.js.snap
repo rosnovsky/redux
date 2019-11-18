@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Container renders without crashing 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Linus News App
+  </h1>
+  <div
+    className="App"
+  >
+    <h2>
+      Headlines
+    </h2>
+  </div>
+  <div
+    className="App"
+  >
+    <h2>
+      News
+    </h2>
+  </div>
+  <div
+    className="App"
+  >
+    <h2>
+      Metadata
+    </h2>
+  </div>
+  <div
+    className="App"
+  >
+    <h4>
+      Read Later
+    </h4>
+  </div>
+</div>
+`;
