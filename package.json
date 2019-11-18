@@ -18,15 +18,36 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom --coverage --watchAll",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "test:coverage": "react-scripts test && codecov",
+    "test:coverage": "react-scripts test --env=jsdom --coverage --watchAll && codecov",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy"
+    }, 
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
   },
   "browserslist": {
     "production": [
