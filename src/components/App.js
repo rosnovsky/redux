@@ -8,13 +8,11 @@ import Headlines from './Headlines';
 import News from './News';
 import Metadata from './Metadata';
 import ReadLater from './ReadLater';
-import { dispatch } from 'rxjs/internal/observable/pairs';
 
 function App() {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        let error = {};
         const apiKey = '57ae048d4ae04603bd6bb1973b2cc445';
         const today = moment();
         const date = moment(today)
@@ -25,17 +23,21 @@ function App() {
         const url = `https://newsapi.org/v2/everything?q=Linux&from=${date}&language=en&sortBy=publishedAt&excludeDomains=${excludedDomains}&apiKey=${apiKey}`;
 
         const fetchArticles = async url => {
-            const response = await fetch(url);
-            const data = await response.json();
-            const articles = await data.articles;
-            articles.forEach(article => {
-                article.id = uuid();
-            });
-            setArticles(articles);
-            store.dispatch({
-                type: 'UPDATE_ARTICLES',
-                articles,
-            });
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const articles = await data.articles;
+                articles.forEach(article => {
+                    article.id = uuid();
+                });
+                setArticles(articles);
+                store.dispatch({
+                    type: 'UPDATE_ARTICLES',
+                    articles,
+                });
+            } catch (error) {
+                throw Error(error);
+            }
         };
         fetchArticles(url);
     }, []);
@@ -43,7 +45,7 @@ function App() {
     return (
         <div className="App">
             <h1>Linus News App</h1>
-            <Headlines articles={articles} />
+            <Headlines />
             <News />
             <Metadata />
             <ReadLater />
