@@ -8,9 +8,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Headlines', () => {
     const articles = [
-        { title: 'First Article', id: 'article-1' },
-        { title: 'Second Article', id: 'article-2' },
-        { title: 'Third Article', id: 'article-3' },
+        { title: 'First Article', id: '1' },
+        { title: 'Second Article', id: '2' },
+        { title: 'Third Article', id: '3' },
     ];
     const initialState = { articles, activeArticle: null };
 
@@ -22,7 +22,7 @@ describe('Headlines', () => {
 
     it('Headlines IDs work correctly', () => {
         const app = create(mount(<Headlines articles={articles} />));
-        expect(app.toJSON().children[2].props.id).toBe('article-2');
+        expect(app.toJSON().children[2].props.id).toBe('2');
     });
 
     it('Headlines render correctly', () => {

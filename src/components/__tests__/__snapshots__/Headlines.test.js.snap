@@ -8,20 +8,35 @@ exports[`Headlines Headlines component renders without crashing 1`] = `
     Headlines
   </h2>
   <h3
-    id="article-1"
+    id="1"
     onClick={[Function]}
+    style={
+      Object {
+        "color": "black",
+      }
+    }
   >
     First Article
   </h3>
   <h3
-    id="article-2"
+    id="2"
     onClick={[Function]}
+    style={
+      Object {
+        "color": "black",
+      }
+    }
   >
     Second Article
   </h3>
   <h3
-    id="article-3"
+    id="3"
     onClick={[Function]}
+    style={
+      Object {
+        "color": "black",
+      }
+    }
   >
     Third Article
   </h3>

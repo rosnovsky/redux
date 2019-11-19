@@ -25,12 +25,14 @@ function App() {
 
         const fetchArticles = async url => {
             try {
+                let id = 0;
                 setIsLoading(true);
                 const response = await fetch(url);
                 const data = await response.json();
                 const articles = await data.articles;
                 articles.forEach(article => {
-                    article.id = `arcitle-${uuid()}`;
+                    article.id = id;
+                    id += 1;
                 });
                 setArticles(articles);
                 store.dispatch({

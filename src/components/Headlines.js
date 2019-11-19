@@ -6,15 +6,17 @@ import Headline from './Headline';
 
 function Headlines({ articles }) {
     const [headlines, setHeadlines] = useState(articles);
+    const [activeArticle, setActiveArticle] = useState();
 
     const updateHeadlines = () => {
-        setHeadlines(store.getState());
+        setHeadlines(store.getState().articles);
+        setActiveArticle(store.getState().activeArticle);
     };
 
-    const unsubscribe = store.subscribe(updateHeadlines);
-    unsubscribe();
+    store.subscribe(updateHeadlines);
 
     const activateArticle = event => {
+        console.log(headlines[event.target.id]);
         store.dispatch(
             {
                 type: 'TOGGLE_ACTIVATE_ARTICLE',
@@ -27,10 +29,15 @@ function Headlines({ articles }) {
     return (
         <div className="App">
             <h2>Headlines</h2>
-            {articles.map(article => (
+            {headlines.map(article => (
                 <Headline
                     key={article.id}
                     article={article}
+                    active={
+                        activeArticle && activeArticle.id === article.id
+                            ? 'true'
+                            : 'false'
+                    }
                     activateArticle={activateArticle}
                 />
             ))}
