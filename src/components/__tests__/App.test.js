@@ -4,8 +4,8 @@ import App from '../App';
 import { Provider } from 'react-redux';
 import store from '../../store';
 
-describe('App Container', () => {
-    it('renders without crashing', () => {
+describe('App', () => {
+    it('App component renders without crashing', () => {
         const app = renderer.create(
             <Provider store={store}>
                 <App />

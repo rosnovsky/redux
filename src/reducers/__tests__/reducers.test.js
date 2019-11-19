@@ -26,7 +26,7 @@ describe('Reducers', () => {
     it('TOGGLE_ACTIVE_ARTICLE', () => {
         const action = {
             type: 'TOGGLE_ACTIVATE_ARTICLE',
-            id: 2,
+            article: { title: 'test', id: 2 },
         };
         const stateAfter = {
             articles,

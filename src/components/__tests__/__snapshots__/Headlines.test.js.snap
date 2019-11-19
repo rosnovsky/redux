@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headlines Headlines component renders without crashing 1`] = `
+<div
+  className="App"
+>
+  <h2>
+    Headlines
+  </h2>
+  
+</div>
+`;

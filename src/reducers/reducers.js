@@ -1,10 +1,7 @@
-const articles = (state = {}, action) => {
+const reducers = (state = {}, action) => {
     switch (action.type) {
         case 'TOGGLE_ACTIVATE_ARTICLE':
-            let currentArticle = state.articles.filter(
-                headline => headline.id === action.id
-            );
-            const newState = { ...state, activeArticle: currentArticle[0] };
+            const newState = { ...state, activeArticle: action.article };
             return newState;
         case 'UPDATE_ARTICLES':
             return { articles: action.articles, activeArticle: null };
@@ -13,4 +10,4 @@ const articles = (state = {}, action) => {
     }
 };
 
-export default articles;
+export default reducers;
