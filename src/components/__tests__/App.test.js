@@ -6,11 +6,9 @@ import store from '../../store';
 
 describe('App', () => {
     it('App component renders without crashing', () => {
-        const app = renderer.create(
-            <Provider store={store}>
-                <App />
-            </Provider>
-        );
+        const app = renderer.create(<App />);
+        const rerender = component => renderer.create(component);
+        rerender(<App />);
         let tree = app.toJSON();
         expect(tree).toMatchSnapshot();
     });

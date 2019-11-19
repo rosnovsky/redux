@@ -11,6 +11,7 @@ import ReadLater from './ReadLater';
 
 function App() {
     const [articles, setArticles] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const apiKey = '57ae048d4ae04603bd6bb1973b2cc445';
@@ -24,6 +25,7 @@ function App() {
 
         const fetchArticles = async url => {
             try {
+                setIsLoading(true);
                 const response = await fetch(url);
                 const data = await response.json();
                 const articles = await data.articles;
@@ -35,7 +37,10 @@ function App() {
                     type: 'UPDATE_ARTICLES',
                     articles,
                 });
+                setIsLoading(false);
+                return articles;
             } catch (error) {
+                setIsLoading(false);
                 throw Error(error);
             }
         };
@@ -45,7 +50,7 @@ function App() {
     return (
         <div className="App">
             <h1>Linus News App</h1>
-            <Headlines />
+            {<Headlines articles={articles} />}
             <News />
             <Metadata />
             <ReadLater />

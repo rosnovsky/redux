@@ -7,6 +7,23 @@ exports[`Headlines Headlines component renders without crashing 1`] = `
   <h2>
     Headlines
   </h2>
-  
+  <h3
+    id="article-1"
+    onClick={[Function]}
+  >
+    First Article
+  </h3>
+  <h3
+    id="article-2"
+    onClick={[Function]}
+  >
+    Second Article
+  </h3>
+  <h3
+    id="article-3"
+    onClick={[Function]}
+  >
+    Third Article
+  </h3>
 </div>
 `;
