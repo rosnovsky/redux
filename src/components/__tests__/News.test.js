@@ -6,7 +6,8 @@ import store from '../../store';
 
 describe('News', () => {
     it('News component renders without crashing', () => {
-        const app = renderer.create(<News />);
+        const article = { title: 'Article', content: 'Article Content' };
+        const app = renderer.create(<News article={article} />);
         let tree = app.toJSON();
         expect(tree).toMatchSnapshot();
     });

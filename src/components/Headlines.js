@@ -16,7 +16,6 @@ function Headlines({ articles }) {
     store.subscribe(updateHeadlines);
 
     const activateArticle = event => {
-        console.log(headlines[event.target.id]);
         store.dispatch(
             {
                 type: 'TOGGLE_ACTIVATE_ARTICLE',

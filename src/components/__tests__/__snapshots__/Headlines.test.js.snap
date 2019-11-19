@@ -8,7 +8,7 @@ exports[`Headlines Headlines component renders without crashing 1`] = `
     Headlines
   </h2>
   <h3
-    id="1"
+    id="0"
     onClick={[Function]}
     style={
       Object {
@@ -19,7 +19,7 @@ exports[`Headlines Headlines component renders without crashing 1`] = `
     First Article
   </h3>
   <h3
-    id="2"
+    id="1"
     onClick={[Function]}
     style={
       Object {
@@ -30,7 +30,7 @@ exports[`Headlines Headlines component renders without crashing 1`] = `
     Second Article
   </h3>
   <h3
-    id="3"
+    id="2"
     onClick={[Function]}
     style={
       Object {

@@ -30,10 +30,6 @@ function App() {
                 const response = await fetch(url);
                 const data = await response.json();
                 const articles = await data.articles;
-                articles.forEach(article => {
-                    article.id = id;
-                    id += 1;
-                });
                 setArticles(articles);
                 store.dispatch({
                     type: 'UPDATE_ARTICLES',
@@ -49,11 +45,21 @@ function App() {
         fetchArticles(url);
     }, []);
 
+    const updateArticles = () => {
+        setArticles(store.getState());
+    };
+
+    store.subscribe(updateArticles);
+
     return (
         <div className="App">
             <h1>Linus News App</h1>
             {<Headlines articles={articles} />}
-            <News />
+            {articles.activeArticle ? (
+                <News article={articles.activeArticle} />
+            ) : (
+                ''
+            )}
             <Metadata />
             <ReadLater />
         </div>

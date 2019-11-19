@@ -1,9 +1,9 @@
 import reducers from '../reducers';
 
 const articles = [
-    { title: 'test', id: 1 },
-    { title: 'test', id: 2 },
-    { title: 'test', id: 3 },
+    { title: 'Linux Article 1' },
+    { title: 'Windows Article 1' },
+    { title: 'Linux Article 2' },
 ];
 const stateBefore = { articles, activeArticle: null };
 
@@ -16,11 +16,17 @@ describe('Reducers', () => {
     });
 
     it('UPDATE_ARTICLES', () => {
+        const filteredArticles = [
+            { title: 'Linux Article 1', id: 0 },
+            { title: 'Linux Article 2', id: 1 },
+        ];
+
+        const stateAfter = { articles: filteredArticles, activeArticle: null };
         const action = {
             type: 'UPDATE_ARTICLES',
             articles: articles,
         };
-        expect(reducers({}, action)).toEqual(stateBefore);
+        expect(reducers({}, action)).toEqual(stateAfter);
     });
 
     it('TOGGLE_ACTIVE_ARTICLE', () => {

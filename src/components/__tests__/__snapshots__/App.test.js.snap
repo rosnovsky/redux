@@ -14,13 +14,7 @@ exports[`App App component renders without crashing 1`] = `
       Headlines
     </h2>
   </div>
-  <div
-    className="App"
-  >
-    <h2>
-      News
-    </h2>
-  </div>
+  
   <div
     className="App"
   >
