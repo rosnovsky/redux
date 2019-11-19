@@ -28,7 +28,7 @@ function App() {
                 const data = await response.json();
                 const articles = await data.articles;
                 articles.forEach(article => {
-                    article.id = uuid();
+                    article.id = `arcitle-${uuid()}`;
                 });
                 setArticles(articles);
                 store.dispatch({
